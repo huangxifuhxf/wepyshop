@@ -1,0 +1,65 @@
+<style lang="less">
+
+</style>
+
+<script>
+import wepy from 'wepy'
+
+export default class extends wepy.app {
+  config = {
+    pages: [
+      'pages/index',
+      'pages/classify',
+      'pages/actorShow',
+      'pages/cart',
+      'pages/centre'
+    ],
+    window: {
+      backgroundTextStyle: 'light',
+      navigationBarTitleText: 'WeChat',
+      navigationBarBackgroundColor: '#ff2d4a',
+      navigationBarTextStyle: 'white'
+    },
+    tabBar: {
+      selectedColor: '#ff2d4a',
+      backgroundColor: '#f4f4f4',
+      list: [
+        {
+          pagePath: 'pages/index',
+          text: '首页',
+          iconPath: '/images/images/icon_home@3x.png',
+          selectedIconPath: '/images/images/icon_home_active@3x.png'
+        },
+        {
+          pagePath: 'pages/classify',
+          text: '分类',
+          iconPath: '/images/images/icon_category@3x.png',
+          selectedIconPath: '/images/images/icon_category_active@3x.png'
+        },
+        {
+          pagePath: 'pages/actorShow',
+          text: '优show',
+          iconPath: '/images/images/icon_show@3x.png',
+          selectedIconPath: '/images/images/icon_show_active@3x.png'
+        },
+        {
+          pagePath: 'pages/cart',
+          text: '购物车',
+          iconPath: '/images/images/icon_cart@3x.png',
+          selectedIconPath: '/images/images/icon_cart_active@3x.png'
+        },
+        {
+          pagePath: 'pages/centre',
+          text: '我的',
+          iconPath: '/images/images/icon_me@3x.png',
+          selectedIconPath: '/images/images/icon_me_active@3x.png'
+        }
+      ]
+    }
+  };
+
+  onLaunch() {
+    console.log('on launch')
+  }
+}
+</script>

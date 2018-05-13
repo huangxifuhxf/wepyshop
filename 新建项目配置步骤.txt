@@ -1,0 +1,5 @@
+wepy init empty wepyshop    	1. 初始化wepy项目
+cd wepyshop       		2. 进入项目文件夹
+npm i                           3. 安装 npm 依赖包
+wepy build --watch              4. 编译 wepy 项目
+微信web开发者工具		5. 新建项目

@@ -1,0 +1,23 @@
+<style lang="less">
+
+</style>
+<template>
+  <view class="Classify">
+    分类
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+
+export default class Classify extends wepy.page {
+  // 设置里 JOSN 配置
+  config = {
+    navigationBarTitleText: '分类'
+  };
+
+  onLoad() {
+    console.log('onLoad')
+  }
+}
+</script>

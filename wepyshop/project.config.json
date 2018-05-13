@@ -1,0 +1,15 @@
+{
+	"description": "\"是一个购物商城小程序\"",
+	"setting": {
+		"urlCheck": true,
+		"es6": false,
+		"postcss": false,
+		"minified": false,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"appid": "wx98071474d7875710",
+	"projectname": "wepyshop",
+	"miniprogramRoot": "./dist",
+	"condition": {}
+}

@@ -1,0 +1,41 @@
+<style lang="less">
+.index_search {
+  padding: 20rpx 16rpx;
+  background-color: #ff2d4a;
+  text-align: center;
+  > input {
+    line-height: 60rpx;
+    width: 100%;
+    height: 60rpx;
+    background-color: #ffffff;
+    border-radius: 10rpx;
+  }
+}
+.banner {
+  height: 340rpx;
+  width: 100%;
+}
+</style>
+<template>
+<view class="container">
+  <!-- 搜索框 -->
+  <view class="index_search">
+    <input type="text" placeholder='搜索'></input>
+  </view>
+  <!-- 轮播图 -->
+</view>
+</template>
+
+<script>
+import wepy from 'wepy'
+
+export default class Index extends wepy.page {
+  config = {
+    navigationBarTitleText: '优购'
+  };
+
+  onLoad() {
+    console.log('onLoad')
+  }
+}
+</script>
