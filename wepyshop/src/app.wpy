@@ -2,8 +2,8 @@
 page {
   background-color: #f4f4f4;
 }
-image {
-  display: block;
+image{
+  vertical-align: middle;
 }
 </style>
 
@@ -12,10 +12,11 @@ import wepy from 'wepy'
 // 引入runtime包
 import 'wepy-async-function'
 export default class extends wepy.app {
-  // constructor() {
-  //   super()
-  // this.use('promisify')
-  // }
+  // 在app.wpy中使API promise化
+  constructor() {
+    super()
+    this.use('promisify')
+  }
   config = {
     pages: [
       'pages/index',
@@ -30,6 +31,7 @@ export default class extends wepy.app {
       navigationBarBackgroundColor: '#ff2d4a',
       navigationBarTextStyle: 'white'
     },
+
     tabBar: {
       selectedColor: '#ff2d4a',
       backgroundColor: '#f4f4f4',

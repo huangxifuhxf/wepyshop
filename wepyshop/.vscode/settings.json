@@ -1,0 +1,38 @@
+{
+  // 调整窗口的缩放级别。
+  "window.zoomLevel": 1,
+  // 保存时设置文件的格式。格式化程序必须可用，不能自动保存文件，并且不能关闭编辑器。
+  "editor.formatOnSave": false,
+  "[javascript]": {
+    "editor.formatOnSave": true
+  },
+  // 根据文件类型自动设置tabsize
+  "editor.detectIndentation": false,
+  // 文字分隔符的字符
+  "editor.wordSeparators": "`~!@#$%^&*()=+[{]}\\|;:'\",.<>/?",
+  // 配置语言的文件关联
+"files.associations": {
+    "*.vue": "vue",
+    "*.wpy": "vue",
+    "*.wxss": "css",
+    "*.wxml": "xml"
+},
+  // 关闭 eslint-plugin-vue
+  "vetur.validation.template": false,
+  // 为指定的语法定义配置文件或使用带有特定规则的配置文件。
+  "emmet.syntaxProfiles": {
+    "vue-html": "html",
+    "vue": "html",
+    "html": "xhtml",
+    "wpy": "html"
+  },
+  // 在默认不支持 Emmet 的语言中启用 Emmet 缩写功能。
+  "emmet.includeLanguages": {
+    "vue-html": "html",
+    "vue": "html",
+    "html": "xhtml",
+    "wpy": "html"
+  },
+  // 启用后，按下 TAB 键，将展开 Emmet 缩写。
+  "emmet.triggerExpansionOnTab": true
+}
