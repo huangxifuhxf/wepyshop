@@ -3,3 +3,11 @@ cd wepyshop       		2. 进入项目文件夹
 npm i                           3. 安装 npm 依赖包
 wepy build --watch              4. 编译 wepy 项目
 微信web开发者工具		5. 新建项目
+
+首页 index.wpy
+分类 category.wpy
+购物车 cart.wpy
+我的 me.wpy
+商品详情 goods_detail.wpy
+订单列表 orders.wpy
+商品列表搜索 goods_list.wpy 

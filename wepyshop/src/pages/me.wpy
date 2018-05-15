@@ -2,7 +2,7 @@
 
 </style>
 <template>
-  <view class="Classify">
+  <view class="Me">
     分类
   </view>
 </template>
@@ -10,11 +10,11 @@
 <script>
 import wepy from 'wepy'
 
-export default class Classify extends wepy.page {
+export default class Me extends wepy.page {
   // 设置里 JOSN 配置
   config = {
-    navigationBarTitleText: '分类'
-  };
+    navigationBarTitleText: '我的'
+  }
 
   onLoad() {
     console.log('onLoad')

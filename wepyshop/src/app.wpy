@@ -1,18 +1,28 @@
 <style lang="less">
-
+page {
+  background-color: #f4f4f4;
+}
+image {
+  display: block;
+}
 </style>
 
 <script>
 import wepy from 'wepy'
-
+// 引入runtime包
+import 'wepy-async-function'
 export default class extends wepy.app {
+  // constructor() {
+  //   super()
+  // this.use('promisify')
+  // }
   config = {
     pages: [
       'pages/index',
-      'pages/classify',
+      'pages/category',
       'pages/actorShow',
       'pages/cart',
-      'pages/centre'
+      'pages/me'
     ],
     window: {
       backgroundTextStyle: 'light',
@@ -31,7 +41,7 @@ export default class extends wepy.app {
           selectedIconPath: '/images/images/icon_home_active@3x.png'
         },
         {
-          pagePath: 'pages/classify',
+          pagePath: 'pages/category',
           text: '分类',
           iconPath: '/images/images/icon_category@3x.png',
           selectedIconPath: '/images/images/icon_category_active@3x.png'
@@ -49,14 +59,14 @@ export default class extends wepy.app {
           selectedIconPath: '/images/images/icon_cart_active@3x.png'
         },
         {
-          pagePath: 'pages/centre',
+          pagePath: 'pages/me',
           text: '我的',
           iconPath: '/images/images/icon_me@3x.png',
           selectedIconPath: '/images/images/icon_me_active@3x.png'
         }
       ]
     }
-  };
+  }
 
   onLaunch() {
     console.log('on launch')

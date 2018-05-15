@@ -11,9 +11,92 @@
     border-radius: 10rpx;
   }
 }
-.banner {
+// 轮播图
+.swiper_box {
+  width: 750rpx;
   height: 340rpx;
-  width: 100%;
+  .swiper_img {
+    vertical-align: middle;
+    width: 750rpx;
+    height: 340rpx;
+  }
+}
+// 首页导航
+.nav {
+  display: flex;
+  .nav_item {
+    display: flex;
+    flex: 1;
+    justify-content: space-around; //水平居中
+    align-items: center; // 垂直居中
+    background-color: red;
+    .nav_img {
+      margin: 20rpx 0;
+      width: 128rpx;
+      height: 140rpx;
+    }
+  }
+}
+// 首页楼层
+.floor_top_img {
+  padding-top: 20rpx;
+  width: 750rpx;
+  height: 59rpx;
+}
+.floor1 {
+  .floor_content {
+    padding: 15rpx 11rpx;
+    display: flex;
+    image {
+      margin: 5rpx;
+    }
+    .floor_content_left {
+      .floor_content_left_img {
+        width: 232rpx;
+        height: 386rpx;
+      }
+    }
+    .floor_content_right {
+      display: flex;
+      flex-wrap: wrap;
+      .floor_content_right_img {
+        vertical-align: top;
+        width: 233rpx;
+        height: 188rpx;
+      }
+    }
+  }
+}
+.floor2 {
+  .floor_content {
+    padding: 15rpx 11rpx;
+    display: flex;
+    image {
+      margin: 5rpx;
+    }
+    .floor_content_left {
+      .floor_content_left_img {
+        width: 232rpx;
+        height: 386rpx;
+      }
+    }
+    .floor_content_right {
+      display: flex;
+      flex-wrap: wrap;
+      .floor_content_right_img {
+        vertical-align: top;
+        height: 188rpx;
+      }
+      :nth-of-type(1),
+      :nth-of-type(4) {
+        width: 273rpx;
+      }
+      :nth-of-type(2),
+      :nth-of-type(3) {
+        width: 193rpx;
+      }
+    }
+  }
 }
 </style>
 <template>
@@ -23,6 +106,95 @@
     <input type="text" placeholder='搜索'></input>
   </view>
   <!-- 轮播图 -->
+  <swiper class="swiper_box" indicator-dots="{{indicatorDots}}" indicator-active-color="#fff" autoplay circular="{{circular}}" interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{swiperArr}}" wx:key="{{keyIndex}}" wx:for-index="index" wx:for-item="item">
+        <swiper-item>
+          <navigation url="{{item.navigator_url}}" open-type="{{item.open_type}}">
+              <image class="swiper_img" src="{{item.image_src}}" mode="widthFix"></image>
+          </navigation>
+        </swiper-item>
+    </block>
+  </swiper>
+  <!-- 首页导航 -->
+  <view class="nav">
+    <block wx:for="{{navArr}}" wx:key="{{keyIndex}}" wx:for-item="value">
+      <navigation url="{{value.navigator_url}}" class="nav_item" open-type="{{item.open_type}}">
+        <image class="nav_img" src="{{value.image_src}}" mode="widthFix"></image>
+      </navigation>
+    </block>
+  </view>
+  <!-- 首页楼层 -->
+  <view class="floor1">
+    <view class="floor_top">
+      <image class="floor_top_img" src="../images/upload/pic_floor01_title@2x.png"></image>
+    </view>
+    <view class="floor_content">
+      <view class="floor_content_left">
+        <image class="floor_content_left_img" src="../images/upload/pic_floor01_1@2x.png"></image>
+      </view>
+      <view class="floor_content_right">
+        <image class="floor_content_right_img" src="../images/upload/pic_floor01_2@2x.png"></image>
+        <image class="floor_content_right_img" src="../images/upload/pic_floor01_3@2x.png"></image>
+        <image class="floor_content_right_img" src="../images/upload/pic_floor01_4@2x.png"></image>
+        <image class="floor_content_right_img" src="../images/upload/pic_floor01_5@2x.png"></image>
+      </view>
+    </view>
+  </view>
+
+  <view class="floor2">
+    <view class="floor_top">
+      <image class="floor_top_img" src="../images/upload/pic_floor02_title@2x.png"></image>
+    </view>
+    <view class="floor_content">
+      <view class="floor_content_left">
+        <image class="floor_content_left_img" src="../images/upload/pic_floor02_1@2x.png"></image>
+      </view>
+      <view class="floor_content_right">
+        <image class="floor_content_right_img" src="../images/upload/pic_floor02_2@2x.png"></image>
+        <image class="floor_content_right_img" src="../images/upload/pic_floor02_3@2x.png"></image>
+        <image class="floor_content_right_img" src="../images/upload/pic_floor02_4@2x.png"></image>
+        <image class="floor_content_right_img" src="../images/upload/pic_floor02_5@2x.png"></image>
+      </view>
+    </view>
+  </view>
+
+  <view class="floor2">
+    <view class="floor_top">
+      <image class="floor_top_img" src="../images/upload/pic_floor02_title@2x.png"></image>
+    </view>
+    <view class="floor_content">
+      <view class="floor_content_left">
+        <image class="floor_content_left_img" src="../images/upload/pic_floor02_1@2x.png"></image>
+      </view>
+      <view class="floor_content_right">
+        <image class="floor_content_right_img" src="../images/upload/pic_floor02_2@2x.png"></image>
+        <image class="floor_content_right_img" src="../images/upload/pic_floor02_3@2x.png"></image>
+        <image class="floor_content_right_img" src="../images/upload/pic_floor02_4@2x.png"></image>
+        <image class="floor_content_right_img" src="../images/upload/pic_floor02_5@2x.png"></image>
+      </view>
+    </view>
+  </view>
+
+<block wx:for="{{floordataArr}}" wx:key="{{keyIndex}}" wx:for-item="item">
+  <view class="floor">
+      <view class="floor_top">
+        <image class="floor_top_img" src="{{item.floor_title.image_src}}"></image>
+      </view>
+      <view class="floor_content">
+        <view class="floor_content_left">
+          <image class="floor_content_left_img" src="{{item.product_list[0].image_src}}"></image>
+        </view>
+        <view class="floor_content_right">
+          <block wx:for="{{item.product_list-1}}" wx:key="{{keyIndex1}}" wx:for-item="item1">
+          <image class="floor_content_right_img" src="../images/upload/pic_floor01_2@2x.png"></image>
+          <image class="floor_content_right_img" src="../images/upload/pic_floor01_3@2x.png"></image>
+          <image class="floor_content_right_img" src="../images/upload/pic_floor01_4@2x.png"></image>
+          <image class="floor_content_right_img" src="../images/upload/pic_floor01_5@2x.png"></image>
+          </block>
+        </view>
+      </view>
+  </view>
+</block>
 </view>
 </template>
 
@@ -32,10 +204,64 @@ import wepy from 'wepy'
 export default class Index extends wepy.page {
   config = {
     navigationBarTitleText: '优购'
-  };
+  }
+  data = {
+    swiperArr: [], // 轮播图图片
+    navArr: [], // 轮播图图片
+    floordataArr: [], // 首页楼层
+    indicatorDots: true, // 是否显示面板指示点
+    circular: true, // 是否采用衔接滑动
+    autoplay: true,
+    interval: 2000,
+    duration: 1000
+  }
 
   onLoad() {
     console.log('onLoad')
+    wepy.request({
+      url: 'https://itjustfun.cn/api/public/v1/home/swiperdata', // 仅为示例，并非真实的接口地址
+      method: 'GET',
+      dataType: 'json',
+      success: res => {
+        console.log(res)
+        this.swiperArr = res.data.data
+        // 不能同步更新，需要手动调用 this.$apply()  更新视图
+        this.$apply()
+      },
+      fail: res => {
+        console.log('请求轮播图数据失败')
+      }
+    })
+
+    wepy.request({
+      url: 'https://itjustfun.cn/api/public/v1/home/catitems', // 仅为示例，并非真实的接口地址
+      method: 'GET',
+      dataType: 'json',
+      success: res => {
+        console.log(res)
+        this.navArr = res.data.data
+        // 不能同步更新，需要手动调用 this.$apply()  更新视图
+        this.$apply()
+      },
+      fail: res => {
+        console.log('请求导航分类数据失败')
+      }
+    })
+
+    wepy.request({
+      url: 'https://itjustfun.cn/api/public/v1/home/floordata', // 仅为示例，并非真实的接口地址
+      method: 'GET',
+      dataType: 'json',
+      success: res => {
+        // console.log(res)
+        this.floordataArr = res.data.data
+        // 不能同步更新，需要手动调用 this.$apply()  更新视图
+        this.$apply()
+      },
+      fail: res => {
+        console.log('请求导航分类数据失败')
+      }
+    })
   }
 }
 </script>

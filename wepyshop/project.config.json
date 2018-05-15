@@ -1,7 +1,7 @@
 {
 	"description": "\"是一个购物商城小程序\"",
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": false,
 		"postcss": false,
 		"minified": false,

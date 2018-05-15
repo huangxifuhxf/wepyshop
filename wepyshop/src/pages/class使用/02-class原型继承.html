@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1,minimum-scale=1,user-scalable=no">
+  <title>02-class原型继承.html</title>
+</head>
+
+<body> </body>
+
+</html>
+<script>
+  class Mark {
+    // 这里写成员---属性
+    // 关键字 constructor
+    constructor(name, age) {
+      this.name = name
+      this.age = age
+    }
+    // 这里写方法
+    fun() {
+      console.log('我Mark方法 fun（）')
+    }
+    fv() {
+      console.log('我Mark方法 fv（）')
+    }
+    // 静态方法 static关键字
+    static run() {
+      console.log('Mark静态方法')
+    }
+  }
+
+  // 设置静态属性
+  Mark.dek = '我是静态属性'
+  let jack = new Mark('狗子', 15)
+
+  console.log(jack);
+  // 输出静态属性  直接点出来
+  console.log(Mark.dek);
+  // 调用静态方法
+  Mark.run()
+
+
+
+
+
+  // 继承 Mark 方法和属性 extends 关键字
+
+  class NewMark extends Mark {}
+  var p1 = new NewMark('小明', 22)
+  console.log(p1);
+  // 调用 原Mark 方法
+  p1.fun()
+  // 调用静态方法
+  NewMark.run()
+
+</script>

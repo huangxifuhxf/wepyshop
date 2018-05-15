@@ -11,7 +11,8 @@
   "author": "\"黄喜福\"",
   "license": "MIT",
   "dependencies": {
-    "wepy": "^1.7.1"
+    "wepy": "^1.7.1",
+    "wepy-async-function": "^1.4.6"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.1",
