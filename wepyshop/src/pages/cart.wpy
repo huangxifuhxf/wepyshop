@@ -18,6 +18,8 @@ export default class Cart extends wepy.page {
 
   onLoad() {
     console.log('onLoad')
+    console.log('onLoad')
+    console.log('onLoad')
   }
 }
 </script>
