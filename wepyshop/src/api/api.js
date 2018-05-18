@@ -17,9 +17,14 @@ const getNavData = params => {
 const getFloorData = params => {
   return wxRequest.requestData('home/floordata', params).then(res => res)
 }
+// 请求商品详情数据
+const getDetailData = params => {
+  return wxRequest.requestData('goods/detail', params).then(res => res)
+}
 
 export default {
   getSwiperData,
   getNavData,
-  getFloorData
+  getFloorData,
+  getDetailData
 }

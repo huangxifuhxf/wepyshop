@@ -1,15 +1,21 @@
 <style lang="less">
+// 引入 iconfont
+@import './style/iconfont.wxss';
+// 全局引入银行卡 iconfont
+@import './style/bankIconFont.wxss';
 page {
   background-color: #f4f4f4;
-}
-image{
-  vertical-align: middle;
+  font-size: 24rpx;
+  color: #333;
+  image {
+    vertical-align: middle;
+  }
 }
 </style>
 
 <script>
 import wepy from 'wepy'
-// 引入runtime包
+// 全局引入runtime包
 import 'wepy-async-function'
 export default class extends wepy.app {
   // 在app.wpy中使API promise化
@@ -20,6 +26,7 @@ export default class extends wepy.app {
   config = {
     pages: [
       'pages/index',
+      'pages/goods_detail',
       'pages/category',
       'pages/actorShow',
       'pages/cart',

@@ -1,0 +1,45 @@
+<style lang='less'>
+.index_search {
+  padding: 20rpx 16rpx;
+  background-color: #ff2d4a;
+  width: 100%;
+  box-sizing: border-box;
+  position: fixed;
+  z-index: 99;
+  height: 100rpx;
+  top: 0;
+  left: 0;
+  &_in {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60rpx;
+    background-color: #ffffff;
+    border-radius: 10rpx;
+  }
+  .index_search_img {
+    margin-right: 20rpx;
+    width: 33rpx;
+    height: 33rpx;
+  }
+}
+page {
+  padding-top: 100rpx;
+}
+</style>
+<template>
+ <!-- 搜索框 -->
+  <navigator class="index_search" src="">
+    <view class="index_search_in">
+      <image src="../images/images/icon_search@2x.png" class="index_search_img"></image>
+      <view>搜索</view>
+    </view>
+  </navigator>
+</template>
+<script>
+import wepy from 'wepy'
+// wepy 组件是从 wepy.component 中继承
+// app.wpy 全局是从 wepy.app 中继承
+// page wpy 页面是从 wepy.page 中继承
+export default class searchBar extends wepy.component {}
+</script>

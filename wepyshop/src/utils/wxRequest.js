@@ -9,7 +9,7 @@ const requestData = (url, params = {}) => {
     method: params.method || 'GET', // 请求方式
     dataType: params.dataType || 'json', // 如果设为json，会尝试对返回的数据做一次 JSON.parse
     header: params.header || {
-      // 响应头 默认值
+      // 响应头 默认值 会对数据进行 JSON 序列化
       'content-type': 'application/json'
     }
   })

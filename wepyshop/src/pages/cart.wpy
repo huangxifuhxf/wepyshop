@@ -1,5 +1,4 @@
 <style lang="less">
-
 </style>
 <template>
   <view class="Cart">
@@ -14,11 +13,9 @@ export default class Cart extends wepy.page {
   // 设置里 JOSN 配置
   config = {
     navigationBarTitleText: '购物车'
-  };
+  }
 
   onLoad() {
-    console.log('onLoad')
-    console.log('onLoad')
     console.log('onLoad')
   }
 }

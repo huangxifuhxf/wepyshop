@@ -1,6 +1,6 @@
 {
   // 调整窗口的缩放级别。
-  "window.zoomLevel": 1,
+  "window.zoomLevel": 0,
   // 保存时设置文件的格式。格式化程序必须可用，不能自动保存文件，并且不能关闭编辑器。
   "editor.formatOnSave": false,
   "[javascript]": {

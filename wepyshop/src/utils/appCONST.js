@@ -1,4 +1,4 @@
-// 定义这个路径
+// 网络的域名的路径
 const HTTP_BASE_URL = 'https://itjustfun.cn/'
 
 // 导出 常量

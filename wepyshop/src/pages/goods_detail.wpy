@@ -1,0 +1,375 @@
+<style lang="less">
+// 2.0 这里写样式
+// 引入WxParse.css
+@import '../plugins/wxParse/wxParse.wxss';
+.swiper,
+.swiper-img {
+  width: 750rpx;
+  height: 720rpx;
+}
+
+.product-info {
+  height: 300rpx;
+  background-color: #fff;
+  padding: 0 16rpx;
+}
+.product-head {
+  height: 38rpx;
+  padding: 40rpx 0;
+  background-color: #f4f4f4;
+  .price {
+    color: #ff2d4a;
+    font-size: 50rpx;
+    font-weight: bold;
+    // margin-left: -10rpx;
+  }
+  .old-price {
+    color: #999;
+    font-size: 26rpx;
+  }
+}
+.product-body {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .product-name {
+    font-size: 34rpx;
+    width: 546rpx;
+    height: 88rpx;
+    line-height: 1.3;
+    /* 多行文字隐藏省略号 */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+  .product-like {
+    width: 50rpx;
+    height: 78rpx;
+    border-left: 1rpx solid #ddd;
+    padding-left: 46rpx;
+    margin-right: 30rpx;
+    color: #999;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .icon-shoucang {
+    width: 32rpx;
+    height: 32rpx;
+    margin-top: 10rpx;
+  }
+}
+
+.product-foot {
+  font-size: 30rpx;
+  color: #999;
+  margin-top: 34rpx;
+}
+
+.part {
+  background-color: #fff;
+  margin: 20rpx 0;
+  font-size: 32rpx;
+  color: #999;
+
+  &-item {
+    display: flex;
+    padding: 28rpx 16rpx;
+    position: relative;
+    align-items: center;
+  }
+
+  &-line:after {
+    content: '';
+    height: 1rpx;
+    width: 734rpx;
+    background-color: #ddd;
+    display: block;
+    position: absolute;
+    bottom: -1rpx;
+  }
+  .note {
+    color: #333;
+    margin-right: 40rpx;
+  }
+  .description {
+    width: 490rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+  }
+  .icon-jiantouyou {
+    width: 25rpx;
+    height: 25rpx;
+    color: #ccc;
+    position: absolute;
+    right: 46rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.tabs-head {
+  height: 100rpx;
+  background-color: #fff;
+  display: flex;
+}
+.tabs-head .tabs-item {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30rpx;
+  position: relative;
+}
+.tabs-head .active {
+  color: #ff2d4a;
+  font-weight: 400;
+}
+.tabs-head .active:after {
+  content: '';
+  height: 12rpx;
+  width: 100%;
+  background-color: #ff2d4a;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+.tabs-body {
+  padding: 16rpx;
+  padding-bottom: 250rpx;
+}
+.param-item {
+  padding: 30rpx 0;
+  font-size: 28rpx;
+  display: flex;
+  align-items: center;
+}
+.param-item .note {
+  width: 50%;
+  color: #999;
+  border-right: 1rpx solid #000;
+  padding-right: 20rpx;
+}
+.param-item .description {
+  padding-left: 20rpx;
+  font-weight: bold;
+  width: 300rpx;
+  width: 50%;
+
+  line-height: 1.3;
+}
+
+.fixed-bar {
+  width: 750rpx;
+  height: 98rpx;
+  background-color: #fff;
+  position: fixed;
+  bottom: 0;
+  z-index: 11;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.fixed-bar .item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.fixed-bar .item .iconfont {
+  width: 40rpx;
+  height: 40rpx;
+  font-size: 40rpx;
+  color: #999;
+}
+
+.fixed-bar .item .item-note {
+  margin-top: 10rpx;
+  font-size: 22rpx;
+  color: #666;
+}
+.fixed-bar .btn-group {
+  display: flex;
+}
+.fixed-bar .btn {
+  width: 213rpx;
+  height: 98rpx;
+  line-height: 98rpx;
+  text-align: center;
+  font-size: 30rpx;
+  color: #fff;
+}
+.yellow-button {
+  background-color: #ffb400;
+}
+.red-button {
+  background-color: #ff2d4a;
+}
+
+.wxParse-content {
+  padding: 55rpx;
+
+  .wxParse-a {
+    display: none;
+  }
+}
+</style>
+<template>
+  <!-- 1.0 这里写结构 -->
+  <!-- 商品详情页 -->
+    <swiper class="swiper"
+      indicator-dots="true"
+      indicator-color="rgba(255,255,255,.5)"
+      indicator-active-color="#ffffff"
+      interval="2500"
+      autoplay="true"
+      circular="true">
+      <block wx:for="{{goodsArr.pics}}" wx:key="index">
+        <swiper-item @tap="bannerShow({{item.pics_big}})">
+          <image class="swiper-img" src="{{item.pics_big}}" />
+        </swiper-item>
+      </block>
+    </swiper>
+    <view class="product-info">
+        <view class="product-head">
+            <text class="price">￥{{goodsArr.goods_price}}</text>
+        </view>
+        <view class="product-body">
+            <view class="product-name">
+                {{goodsArr.goods_name}}}
+            </view>
+            <view class="product-like">
+                <view class="iconfont icon-shoucang"></view>
+                <view>收藏</view>
+            </view>
+        </view>
+        <view class="product-foot">
+            快递：<text>免运费</text>
+        </view>
+    </view>
+    <view class="part">
+        <view class="part-item part-line">
+            <text class="note">促销</text><text class="description color-main">满300减30元</text>
+        </view>
+        <view class="part-item">
+            <text class="note">已选</text><text class="description">黑色/S/1件</text>
+        </view>
+    </view>
+    <view class="part">
+        <view class="part-item">
+            <text class="note">送至</text><text class="description">广东省广州市天河区珠吉路58号津安创意园传智播客</text>
+            <view class="iconfont icon-jiantouyou"></view>
+        </view>
+    </view>
+
+    <view class="tabs">
+        <view class="tabs-head">
+            <view class="tabs-item {{isShowTab == 0? 'active':''}}" @tap="tabToggle(0)">
+                图文详情
+            </view>
+            <view class="tabs-item {{isShowTab == 1 ? 'active':''}}" @tap="tabToggle(1)">
+                规格参数
+            </view>
+        </view>
+        <view class="tabs-body">
+            <view class="tabs-content" style="display: {{isShowTab == 0? 'block':'none'}}">
+                <!-- 商品图文展示 -->
+                <!-- 引入模板 -->
+              <import src="/plugins/wxParse/wxParse.wxml"/>
+              <!-- 这里data中article为bindName -->
+              <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+            </view>
+            <block wx:for="{{goodsArr.attrs}}" wx:key="index">
+            <view class="tabs-content" style="display: {{isShowTab == 1? 'block':'none'}}">
+                <view class="param-item">
+                    <text class="note">{{item.attr_name}}</text>
+                    <text class="description">{{item.attr_value}}</text>
+                </view>
+            </view>
+            </block>
+        </view>
+    </view>
+
+    <view class="fixed-bar">
+        <view class="item">
+            <view class="iconfont icon-kefu"></view>
+            <text class="item-note">联系客服</text>
+        </view>
+        <view class="item">
+            <view class="iconfont icon-gouwuche"></view>
+            <text class="item-note">购物车</text>
+        </view>
+        <view class="btn-group">
+            <view class="btn yellow-button">加入购物车</view>
+            <view class="btn red-button">立即购买</view>
+        </view>
+    </view>
+</template>
+
+<script>
+// 3.0 这里写JS
+import wepy from 'wepy'
+import api from '../api/api.js'
+// 引入WxParse模块
+import WxParse from '../plugins/wxParse/wxParse.js'
+
+// 首字母大写
+export default class GoodsDetail extends wepy.page {
+  // 4.0 这里写JSON配置项
+  config = {
+    navigationBarTitleText: '商品详情'
+  }
+  data = {
+    goodsArr: null, // 页面数据
+    isShowTab: 0
+  }
+  onLoad() {
+    console.log('onLoad')
+    api
+      .getDetailData({
+        data: { goods_id: 17927 }
+      })
+      .then(res => {
+        console.log(res)
+        this.goodsArr = res.data.data
+        var article = res.data.data.goods_introduce
+        this.$apply()
+        /**
+         * WxParse.wxParse(bindName , type, data, target,imagePadding)
+         * 1.bindName绑定的数据名(必填)
+         * 2.type可以为html或者md(必填)
+         * 3.data为传入的具体数据(必填)
+         * 4.target为Page对象,一般为this(必填)
+         * 5.imagePadding为当图片自适应是左右的单一padding(默认为0,可选)
+         */
+        var that = this
+        WxParse.wxParse('article', 'html', article, that, 5)
+      })
+  }
+  methods = {
+    // tab栏切换
+    tabToggle(tabShow) {
+      this.isShowTab = tabShow
+    },
+    // 轮播图片放大
+    bannerShow(currentUrl) {
+      let urlArr = []
+      this.goodsArr.pics.forEach((item, index) => {
+        urlArr.push(item.pics_big)
+      })
+      wepy.previewImage({
+        current: currentUrl, // 当前显示图片的http链接
+        urls: urlArr // 需要预览的图片http链接列表
+      })
+    }
+  }
+}
+</script>
